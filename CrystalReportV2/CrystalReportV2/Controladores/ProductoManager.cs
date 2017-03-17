@@ -27,5 +27,20 @@ namespace CrystalReportV2.Controladores
                 throw;
             }                            
         }
+
+        public static List<Producto> getListado()
+        {
+            try
+            {
+                using (var ctx = new DataModel()) {
+                    return ctx.Productos.Where(r => r.bStatus == true).ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }       
     }
 }

@@ -9,11 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CrystalReportV2.Controladores;
+using CrystalDecisions.Shared;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace CrystalReportV2
 {
     public partial class frmReporte : Form
     {
+
+        ReportDocument crpDocument;
+
+        private void GenerarReporte() {
+            crpDocument = new ReportDocument();
+            crpDocument.Load(@"Reportes\rptProductos.rpt");
+            crpDocument.SetDataSource(ProductoManager.getListado());
+            //crpDocument.SetParameterValue("NombreParametros",valor);
+            this.crpVReporte.ReportSource = crpDocument;
+
+        }
+            
         public void CargarDeptos() {
             List<String> deptos= ProductoManager.getListaDepartamentos();
             cmbDepartamento.DataSource = deptos;
@@ -28,6 +42,11 @@ namespace CrystalReportV2
         {
             CargarDeptos();
             cmbDepartamento.SelectedIndex = cmbDepartamento.Items.Count-1;
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            this.GenerarReporte();
         }
     }
 }

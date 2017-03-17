@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.btnGenerar = new System.Windows.Forms.Button();
+            this.crpVReporte = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
             // label1
@@ -76,19 +77,31 @@
             this.btnGenerar.TabIndex = 4;
             this.btnGenerar.Text = "GENERAR";
             this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            // 
+            // crpVReporte
+            // 
+            this.crpVReporte.ActiveViewIndex = -1;
+            this.crpVReporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crpVReporte.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crpVReporte.Location = new System.Drawing.Point(16, 75);
+            this.crpVReporte.Name = "crpVReporte";
+            this.crpVReporte.Size = new System.Drawing.Size(770, 428);
+            this.crpVReporte.TabIndex = 5;
             // 
             // frmReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 515);
+            this.ClientSize = new System.Drawing.Size(797, 515);
+            this.Controls.Add(this.crpVReporte);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.cmbDepartamento);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmReporte";
             this.Text = "frmReporte";
             this.Load += new System.EventHandler(this.frmReporte_Load);
@@ -104,5 +117,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbDepartamento;
         private System.Windows.Forms.Button btnGenerar;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crpVReporte;
     }
 }
